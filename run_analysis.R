@@ -50,5 +50,6 @@ names(data_test) <- c("subjects", "activities", features_names)
 ##Merging the two dataframes
 data <- rbind(data_train, data_test)
 ###Analysis
-res <- data %>% group_by(activities, subjects) %>% summarise_each(funs(mean), 3:68)
-##write.table(data, file="tidydata.txt", row.names = FALSE)
+library(dplyr)
+tidydata <- data %>% group_by(activities, subjects) %>% summarise_each(funs(mean), 3:68)
+write.table(tidydata, file="tidydata.txt", row.names = FALSE)
