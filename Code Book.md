@@ -4,10 +4,10 @@
 ### Subjects
 * Subjects is a numeric variable whose possible values are an integer from 1 to 30, one for each subject.
 
-###Activities
+### Activities
 * Activities is a character variable whose possible values are one of the six activities : walking, walking upstairs, walking downstairs, sitting, standing or laying.
 
-###Features
+### Features
 All the numeric variables below store the average of each corresponding measurement for each activity and each subject. Their names are in fact the same as those used in the features.txt file.
 
 * tBodyAcc-mean()-X
