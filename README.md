@@ -3,12 +3,13 @@
 
 The repertory "UCI HAR Dataset" is the working directory.  
 The script run_analysis.R gets the datas from the seven text files :
-* features  
-* /train/subject_train  
-* /train/X_train  
-* /train/y_train  
-* /test/subject_test  
-* /test/X_test  
+
+* features
+* /train/subject_train
+* /train/X_train
+* /train/y_train
+* /test/subject_test
+* /test/X_test
 * /test/y_test
 
 First it determines the 66 features for which the measures are required for the analysis and gets the names.  

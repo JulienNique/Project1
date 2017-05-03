@@ -21,10 +21,9 @@ path <- paste(getwd(),'/train/X_train.txt', sep="")
 measures <- readLines(path)
 measures <- strsplit(measures, split=" +")
 measures <- lapply(measures, function (elt) {as.numeric(elt[-1])})
-M <- matrix(nrow = 7352, ncol = 66)
-for (i in 1:7352) M[i,] <- measures[[i]][ind]
+measures = t(as.data.frame(measures))
 
-data_train <- data.frame(subjects, activities, M)
+data_train <- data.frame(subjects, activities, measures[,ind])
 names(data_train) <- c("subjects", "activities", features_names)
 
 ##Creating a dataframe from test set
@@ -43,13 +42,13 @@ path <- paste(getwd(),'/test/X_test.txt', sep="")
 measures <- readLines(path)
 measures <- strsplit(measures, split=" +")
 measures <- lapply(measures, function (elt) {as.numeric(elt[-1])})
-M <- matrix(nrow = 2947, ncol = 66)
-for (i in 1:2947) M[i,] <- measures[[i]][ind]
+measures = t(as.data.frame(measures))
 
-data_test <- data.frame(subjects, activities, M)
+data_test <- data.frame(subjects, activities, measures[,ind])
 names(data_test) <- c("subjects", "activities", features_names)
 
 ##Merging the two dataframes
 data <- rbind(data_train, data_test)
 ###Analysis
 res <- data %>% group_by(activities, subjects) %>% summarise_each(funs(mean), 3:68)
+##write.table(data, file="tidydata.txt", row.names = FALSE)
