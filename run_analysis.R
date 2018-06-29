@@ -12,7 +12,7 @@ activities <- as.numeric(readLines(path))
 activities <- factor(activities, levels = 1:6, labels = c("walking", "walking upstairs",
                                                           "walking downstairs", "sitting",
                                                           "standing", "laying"))
-###Getting subjects 
+###Getting subjects
 path <- paste(getwd(),'/train/Subject_train.txt', sep="")
 subjects <- as.numeric(readLines(path))
 
