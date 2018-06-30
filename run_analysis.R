@@ -51,5 +51,5 @@ names(data_test) <- c("subjects", "activities", features_names)
 data <- rbind(data_train, data_test)
 ###Analysis
 library(dplyr)
-tidydata <- data %>% group_by(activities, subjects) %>% summarise_each(funs(mean), 3:68)
+tidydata <- data %>% group_by(activities, subjects) %>% summarise_at(3:68, funs(mean))
 write.table(tidydata, file="tidydata.txt", row.names = FALSE)
